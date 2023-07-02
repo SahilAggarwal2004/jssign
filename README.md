@@ -1,10 +1,10 @@
-# JSSign
+# jssign
 A better, faster, lighter and more secure alternative to [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 ## Features
 - Encrypt data using a secret
 - Decrypt a token with secret to retrive data back
 ## Installation
-To install JSSign
+To install jssign
 ```bash
   # with npm:
   npm install jssign --save
@@ -13,9 +13,9 @@ To install JSSign
   yarn add jssign
 ```
 ## Usage
-`JSSign` exports different functions for data encryption for different use cases:
+`jssign` exports different functions for data encryption for different use cases:
 ### Faster Usage
-For a faster (but less secure) encoding and decoding of data using a secret, `JSSign` exports the following functions:
+For a faster (but less secure) encoding and decoding of data using a secret, `jssign` exports the following functions:
 - `sign(data, secret, options)`: returns encoded token
 - `verify(token, secret)`: returns decoded data
 ```javascript
@@ -36,7 +36,7 @@ console.log(data) // { foo: 'bar' }
 - `sl` can be a numberic value representing salt length (default value is `8`). Salt is a random string which is added on top of data to keep the token different everytime even for the same data.
 
 ### More secure Usage
-For a more secure (but slower) encryption and decryption of data using a secret, `JSSign` exports the following functions that uses [sjcl](https://www.npmjs.com/package/sjcl) under the hood:
+For a more secure (but slower) encryption and decryption of data using a secret, `jssign` exports the following functions that uses [sjcl](https://www.npmjs.com/package/sjcl) under the hood:
 - `encrypt(data, secret, options)`: return encrypted token
 - `decrypt(token, secret)`: returns decrypted data
 ```javascript
