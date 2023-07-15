@@ -16,7 +16,9 @@
       "ES5",
       "ES2015",
       "ES2016",
-      "ES2022"
+      "ES2017",
+      "ES2022",
+      "DOM"
     ],
     "moduleResolution": "node",
     "noImplicitAny": true

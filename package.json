@@ -1,6 +1,6 @@
 {
   "name": "jssign",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A token generator library to encode and decode data using a secret key",
   "main": "./build/cjs/index.js",
   "module": "./build/esm/index.js",
@@ -13,7 +13,18 @@
     "type": "git",
     "url": "git+https://github.com/SahilAggarwal2004/jssign.git"
   },
-  "keywords": ["jssign", "jss", "javascript", "sign", "javascriptsign", "token", "encryption", "decryption", "jsonwebtoken", "sjcl"],
+  "keywords": [
+    "jssign",
+    "jss",
+    "javascript",
+    "sign",
+    "javascriptsign",
+    "token",
+    "encryption",
+    "decryption",
+    "jsonwebtoken",
+    "sjcl"
+  ],
   "author": "Sahil Aggarwal",
   "license": "MIT",
   "bugs": {
