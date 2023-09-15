@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.decrypt = exports.encrypt = exports.verify = exports.sign = void 0;
 const sjcl_1 = __importDefault(require("sjcl"));
 const defaults = { v: 1, iter: 10000, ks: 128, ts: 64, mode: "ccm", adata: "", cipher: "aes" };
-const characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', '~', '!', '@', '#', '$', '%', '^', '&'];
+const characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', ':', '<', '>', '?'];
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 const randomNumber = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
@@ -48,7 +48,7 @@ function decode(token, secret, type) {
         decodedBytes[i] = tokenBytes[i] ^ secretBytes[i % secretLength];
     return decoder.decode(decodedBytes);
 }
-function sign(data, secret, { expiresIn = 0, sl = 8 } = { expiresIn: 0, sl: 8 }) {
+function sign(data, secret, { expiresIn = 0, sl = 32 } = {}) {
     const salt = genSalt(sl);
     const token = encode(JSON.stringify({ data, iat: Date.now(), exp: expiresIn }), salt, 1);
     const signature = encode(salt, secret, 0);
@@ -69,7 +69,7 @@ function verify(token, secret) {
     }
 }
 exports.verify = verify;
-function encrypt(data, secret, { expiresIn = 0 } = { expiresIn: 0 }) {
+function encrypt(data, secret, { expiresIn = 0 } = {}) {
     const { ct, iv, salt } = JSON.parse(sjcl_1.default.encrypt(secret, JSON.stringify({ data, iat: Date.now(), exp: expiresIn })));
     return `${ct}.${iv}.${salt}`;
 }

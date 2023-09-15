@@ -3,7 +3,7 @@ import sjcl from 'sjcl'
 type Type = 0 | 1
 
 const defaults = { v: 1, iter: 10000, ks: 128, ts: 64, mode: "ccm", adata: "", cipher: "aes" }
-const characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', '~', '!', '@', '#', '$', '%', '^', '&']
+const characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', ':', '<', '>', '?']
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -49,7 +49,7 @@ function decode(token: string, secret: string, type: Type): string {
 }
 
 
-function sign(data: any, secret: string, { expiresIn = 0, sl = 8 }: { expiresIn: number, sl: number } = { expiresIn: 0, sl: 8 }): string {
+function sign(data: any, secret: string, { expiresIn = 0, sl = 32 }: Partial<{ expiresIn: number, sl: number }> = {}): string {
     const salt = genSalt(sl)
     const token = encode(JSON.stringify({ data, iat: Date.now(), exp: expiresIn }), salt, 1)
     const signature = encode(salt, secret, 0)
@@ -66,7 +66,7 @@ function verify(token: string, secret: string) {
     } catch { throw new Error('Invalid token or secret!') }
 }
 
-function encrypt(data: any, secret: string, { expiresIn = 0 }: { expiresIn: number } = { expiresIn: 0 }): string {
+function encrypt(data: any, secret: string, { expiresIn = 0 }: Partial<{ expiresIn: number }> = {}): string {
     // @ts-ignore
     const { ct, iv, salt } = JSON.parse(sjcl.encrypt(secret, JSON.stringify({ data, iat: Date.now(), exp: expiresIn })))
     return `${ct}.${iv}.${salt}`
