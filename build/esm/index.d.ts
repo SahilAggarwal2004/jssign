@@ -1,4 +1,3 @@
-export type Type = 0 | 1;
 export interface SignOptions {
     expiresIn?: number;
     sl?: number;
