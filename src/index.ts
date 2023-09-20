@@ -1,6 +1,13 @@
 import sjcl from 'sjcl'
 
 type Type = 0 | 1
+export interface SignOptions {
+    expiresIn?: number
+    sl?: number
+}
+export interface EncryptOptions {
+    expiresIn?: number
+}
 
 const defaults = { v: 1, iter: 10000, ks: 128, ts: 64, mode: "ccm", adata: "", cipher: "aes" }
 const characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', ':', '<', '>', '?']
@@ -49,7 +56,7 @@ function decode(token: string, secret: string, type: Type): string {
 }
 
 
-function sign(data: any, secret: string, { expiresIn = 0, sl = 32 }: Partial<{ expiresIn: number, sl: number }> = {}): string {
+function sign(data: any, secret: string, { expiresIn = 0, sl = 32 }: SignOptions = {}): string {
     const salt = genSalt(sl)
     const token = encode(JSON.stringify({ data, iat: Date.now(), exp: expiresIn }), salt, 1)
     const signature = encode(salt, secret, 0)
@@ -66,7 +73,7 @@ function verify(token: string, secret: string) {
     } catch { throw new Error('Invalid token or secret!') }
 }
 
-function encrypt(data: any, secret: string, { expiresIn = 0 }: Partial<{ expiresIn: number }> = {}): string {
+function encrypt(data: any, secret: string, { expiresIn = 0 }: EncryptOptions = {}): string {
     // @ts-ignore
     const { ct, iv, salt } = JSON.parse(sjcl.encrypt(secret, JSON.stringify({ data, iat: Date.now(), exp: expiresIn })))
     return `${ct}.${iv}.${salt}`

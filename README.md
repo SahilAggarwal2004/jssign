@@ -33,7 +33,7 @@ console.log(data) // { foo: 'bar' }
 
 `options`:
 - `expiresIn` can be a numeric value representing time in ms (no expiration by default).
-- `sl` can be a numberic value representing salt length (default value is `8`). Salt is a random string which is added on top of data to keep the token different everytime even for the same data.
+- `sl` can be a numberic value representing salt length (default value is `32`). Salt is a random string which is added on top of data to keep the token different everytime even for the same data.
 
 ### More secure Usage
 For a more secure (but slower) encryption and decryption of data using a secret, `jssign` exports the following functions that uses [sjcl](https://www.npmjs.com/package/sjcl) under the hood:
