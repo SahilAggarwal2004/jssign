@@ -11,6 +11,12 @@ To install jssign
 
   # with yarn:
   yarn add jssign
+
+  # with pnpm:
+  pnpm add jssign
+
+  # with bun:
+  bun add jssign
 ```
 ## Usage
 `jssign` exports different functions for data encryption for different use cases:
@@ -54,8 +60,5 @@ console.log(data) // { id: 'confidential_data' }
 
 `options`:
 - `expiresIn` can be a numeric value representing time in ms (no expiration by default).
-## Used By
-- [CloudBreeze](https://cloudbreeze.vercel.app/)
-- [NewsDose](https://newsdoseweb.netlify.app/)
 ## Author
 [Sahil Aggarwal](https://www.github.com/SahilAggarwal2004)

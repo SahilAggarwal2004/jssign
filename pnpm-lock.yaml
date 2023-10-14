@@ -1,0 +1,25 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  sjcl:
+    specifier: ^1.0.8
+    version: 1.0.8
+
+devDependencies:
+  '@types/sjcl':
+    specifier: ^1.0.31
+    version: 1.0.31
+
+packages:
+
+  /@types/sjcl@1.0.31:
+    resolution: {integrity: sha512-lBdWaG4WF/FecbtFph09s4BdO67bCsjw1t8kmuHRuvZ6kJkG7eB70a+zDEs3tfd7N3IKEIPxUs45XF2HBsDYmw==}
+    dev: true
+
+  /sjcl@1.0.8:
+    resolution: {integrity: sha512-LzIjEQ0S0DpIgnxMEayM1rq9aGwGRG4OnZhCdjx7glTaJtf4zRfpg87ImfjSJjoW9vKpagd82McDOwbRT5kQKQ==}
+    dev: false

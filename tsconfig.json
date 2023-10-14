@@ -9,8 +9,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "rootDir": "./src",
-    "outDir": "./build/esm",
+    "rootDir": "src",
+    "outDir": "dist/esm",
     "allowSyntheticDefaultImports": true,
     "lib": [
       "ES5",
