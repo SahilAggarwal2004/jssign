@@ -1,6 +1,6 @@
 {
   "name": "jssign",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A token generator library to encode and decode data using a secret key",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
