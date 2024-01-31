@@ -38,7 +38,7 @@ console.log(data) // { foo: 'bar' }
 `secret` can be a string
 
 `options`:
-- `expiresIn` can be a numeric value representing time in ms (no expiration by default).
+- `expiresIn` can be a numeric value representing time in ms (default value is `0` which represents no expiration).
 - `sl` can be a numberic value representing salt length (default value is `32`). Salt is a random string which is added on top of data to keep the token different everytime even for the same data.
 
 ### More secure Usage
@@ -59,7 +59,7 @@ console.log(data) // { id: 'confidential_data' }
 `secret` can be a string
 
 `options`:
-- `expiresIn` can be a numeric value representing time in ms (no expiration by default).
+- `expiresIn` can be a numeric value representing time in ms (default value is `0` which represents no expiration).
 
 `sjclOptions` are the options taken by `sjcl.encrypt` method having type `SjclCipherEncryptParams`
 ## Author
