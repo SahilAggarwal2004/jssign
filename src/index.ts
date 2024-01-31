@@ -1,4 +1,4 @@
-import sjcl from 'sjcl'
+import sjcl, { SjclCipherEncryptParams } from 'sjcl'
 
 type Type = 0 | 1
 
@@ -6,7 +6,8 @@ export type EncryptOptions = { expiresIn?: number }
 
 export type SignOptions = EncryptOptions & { sl?: number }
 
-const defaults = { v: 1, iter: 10000, ks: 128, ts: 64, mode: "ccm", adata: "", cipher: "aes" }
+export type { SjclCipherEncryptParams }
+
 const characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', ':', '<', '>', '?']
 
 const encoder = new TextEncoder();
@@ -53,14 +54,14 @@ function decode(token: string, secret: string, type: Type): string {
 }
 
 
-function sign(data: any, secret: string, { expiresIn = 0, sl = 32 }: SignOptions = {}): string {
+export function sign(data: any, secret: string, { expiresIn = 0, sl = 32 }: SignOptions = {}): string {
     const salt = genSalt(sl)
     const token = encode(JSON.stringify({ data, iat: Date.now(), exp: expiresIn }), salt, 1)
     const signature = encode(salt, secret, 0)
     return `${token}.${signature}`
 }
 
-function verify(token: string, secret: string) {
+export function verify(token: string, secret: string) {
     try {
         const [dataStr, signature] = token.split('.')
         const salt = decode(signature, secret, 0)
@@ -70,20 +71,22 @@ function verify(token: string, secret: string) {
     } catch { throw new Error('Invalid token or secret!') }
 }
 
-function encrypt(data: any, secret: string, { expiresIn = 0 }: EncryptOptions = {}): string {
-    // @ts-ignore
-    const { ct, iv, salt } = JSON.parse(sjcl.encrypt(secret, JSON.stringify({ data, iat: Date.now(), exp: expiresIn })))
-    return `${ct}.${iv}.${salt}`
+export function encrypt(data: any, secret: string, { expiresIn = 0 }: EncryptOptions = {}, sjclOptions?: SjclCipherEncryptParams): string {
+    const encryptedObj = JSON.parse((sjcl.encrypt(secret, JSON.stringify({ data, iat: Date.now(), exp: expiresIn }), sjclOptions) as any))
+    const encryptedArr = Object.entries(encryptedObj).map(([key, value]) => `${key}:${value}`)
+    return encryptedArr.join('.')
 }
 
-function decrypt(token: string, secret: string) {
+export function decrypt(token: string, secret: string) {
     try {
-        const [ct, iv, salt] = token.split('.')
-        token = JSON.stringify({ ct, iv, salt, ...defaults })
-        const { data, iat, exp } = JSON.parse(sjcl.decrypt(secret, token))
+        const encryptedArr = token.split('.')
+        const encryptedObj = encryptedArr.reduce((obj: { [key: string]: string | number }, str) => {
+            const [key, value] = str.split(':')
+            obj[key] = +value || value
+            return obj
+        }, {})
+        const { data, iat, exp } = JSON.parse(sjcl.decrypt(secret, JSON.stringify(encryptedObj)))
         if (!exp || Date.now() < iat + exp) return data
         throw new Error()
     } catch { throw new Error('Invalid token or secret!') }
 }
-
-export { sign, verify, encrypt, decrypt }

@@ -11,13 +11,13 @@ dependencies:
 
 devDependencies:
   '@types/sjcl':
-    specifier: ^1.0.31
-    version: 1.0.31
+    specifier: ^1.0.34
+    version: 1.0.34
 
 packages:
 
-  /@types/sjcl@1.0.31:
-    resolution: {integrity: sha512-lBdWaG4WF/FecbtFph09s4BdO67bCsjw1t8kmuHRuvZ6kJkG7eB70a+zDEs3tfd7N3IKEIPxUs45XF2HBsDYmw==}
+  /@types/sjcl@1.0.34:
+    resolution: {integrity: sha512-bQHEeK5DTQRunIfQeUMgtpPsNNCcZyQ9MJuAfW1I7iN0LDunTc78Fu17STbLMd7KiEY/g2zHVApippa70h6HoQ==}
     dev: true
 
   /sjcl@1.0.8:

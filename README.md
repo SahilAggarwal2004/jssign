@@ -43,7 +43,7 @@ console.log(data) // { foo: 'bar' }
 
 ### More secure Usage
 For a more secure (but slower) encryption and decryption of data using a secret, `jssign` exports the following functions that uses [sjcl](https://www.npmjs.com/package/sjcl) under the hood:
-- `encrypt(data, secret, options)`: return encrypted token
+- `encrypt(data, secret, options, sjclOptions)`: return encrypted token
 - `decrypt(token, secret)`: returns decrypted data
 ```javascript
 import { encrypt, decrypt } from 'jssign'
@@ -60,5 +60,7 @@ console.log(data) // { id: 'confidential_data' }
 
 `options`:
 - `expiresIn` can be a numeric value representing time in ms (no expiration by default).
+
+`sjclOptions` are the options taken by `sjcl.encrypt` method having type `SjclCipherEncryptParams`
 ## Author
 [Sahil Aggarwal](https://www.github.com/SahilAggarwal2004)
