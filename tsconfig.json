@@ -12,10 +12,7 @@
     "rootDir": "src",
     "outDir": "dist/esm",
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "moduleResolution": "node",
     "noImplicitAny": true
   }
