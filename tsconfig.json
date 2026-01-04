@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
+    "target": "es6",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "ESNext"],
     "declaration": true,
     "noUnusedLocals": true,
     "removeComments": true,
@@ -9,11 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "rootDir": "src",
-    "outDir": "dist/esm",
-    "allowSyntheticDefaultImports": true,
-    "lib": ["DOM", "ESNext"],
-    "moduleResolution": "node",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "erasableSyntaxOnly": true
   }
 }

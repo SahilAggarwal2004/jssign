@@ -24,9 +24,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm i && pnpm run esm && pnpm run cjs",
-    "cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
-    "esm": "tsc",
+    "build": "pnpm i && pnpm run compile",
+    "compile": "tsup",
+    "dev": "tsup --watch",
     "prettier": "prettier-package-json --write package.json"
   },
   "sideEffects": false,
@@ -36,7 +36,9 @@
   },
   "devDependencies": {
     "@types/sjcl": "^1.0.34",
-    "prettier-package-json": "^2.8.0"
+    "prettier-package-json": "^2.8.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
   },
   "keywords": [
     "decoder",
