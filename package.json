@@ -20,6 +20,7 @@
     },
     "./types": "./dist/esm/types.js"
   },
+  "main": "dist/esm/index.js",
   "files": [
     "dist"
   ],
