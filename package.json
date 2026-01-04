@@ -8,7 +8,7 @@
   "scripts": {
     "esm": "tsc",
     "cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
-    "build": "bun i && bun esm && bun cjs"
+    "build": "pnpm i && pnpm esm && pnpm cjs"
   },
   "repository": {
     "type": "git",
