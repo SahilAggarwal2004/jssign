@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.8](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.7...v0.3.8) (2026-01-04)
+
+### Build System
+
+* Add main entry for tooling compatibility.  ([d976f98](https://github.com/SahilAggarwal2004/jssign/commit/d976f98684591d151e93586466a216dc94ad5b67))
+
 ## [0.3.7](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.6...v0.3.7) (2026-01-04)
 
 ### Chores
