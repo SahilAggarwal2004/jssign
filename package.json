@@ -2,45 +2,57 @@
   "name": "jssign",
   "version": "0.3.6",
   "description": "A token generator library to encode and decode data using a secret key",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
-  "scripts": {
-    "esm": "tsc",
-    "cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
-    "build": "pnpm i && pnpm esm && pnpm cjs"
-  },
+  "license": "MIT",
+  "author": "Sahil Aggarwal <aggarwalsahil2004@gmail.com>",
+  "homepage": "https://github.com/SahilAggarwal2004/jssign#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SahilAggarwal2004/jssign.git"
   },
-  "keywords": [
-    "jssign",
-    "jss",
-    "javascript",
-    "sign",
-    "javascriptsign",
-    "token",
-    "encryption",
-    "decryption",
-    "jsonwebtoken",
-    "sjcl",
-    "typescript",
-    "js",
-    "encoder",
-    "decoder",
-    "jwt-alternative"
-  ],
-  "author": "Sahil Aggarwal",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/SahilAggarwal2004/jssign/issues"
   },
-  "homepage": "https://github.com/SahilAggarwal2004/jssign#readme",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
+    },
+    "./types": "./dist/esm/types.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm i && pnpm run esm && pnpm run cjs",
+    "cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
+    "esm": "tsc",
+    "prettier": "prettier-package-json --write package.json"
+  },
+  "sideEffects": false,
+  "types": "dist/esm/index.d.ts",
   "dependencies": {
     "sjcl": "^1.0.8"
   },
   "devDependencies": {
-    "@types/sjcl": "^1.0.34"
-  }
+    "@types/sjcl": "^1.0.34",
+    "prettier-package-json": "^2.8.0"
+  },
+  "keywords": [
+    "decoder",
+    "decryption",
+    "encoder",
+    "encryption",
+    "javascript",
+    "javascriptsign",
+    "js",
+    "jsonwebtoken",
+    "jss",
+    "jssign",
+    "jwt-alternative",
+    "sign",
+    "sjcl",
+    "token",
+    "typescript"
+  ]
 }

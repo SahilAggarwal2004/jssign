@@ -1,6 +1,0 @@
-node_modules
-src
-.gitignore
-CHANGELOG.md
-bun.lockb
-tsconfig.json

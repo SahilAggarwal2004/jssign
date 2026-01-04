@@ -1,6 +1,6 @@
 # jssign
 
-A better, faster, lighter and more secure alternative to [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+A better, faster, lighter and more secure alternative to [`jsonwebtoken`](https://github.com/auth0/node-jsonwebtoken)
 
 ## Features
 
@@ -9,20 +9,20 @@ A better, faster, lighter and more secure alternative to [jsonwebtoken](https://
 
 ## Installation
 
-To install jssign
+Install `jssign` using your preferred package manager:
 
 ```bash
-  # with npm:
-  npm install jssign --save
+# with npm:
+npm install jssign --save
 
-  # with yarn:
-  yarn add jssign
+# with yarn:
+yarn add jssign
 
-  # with pnpm:
-  pnpm add jssign
+# with pnpm:
+pnpm add jssign
 
-  # with bun:
-  bun add jssign
+# with bun:
+bun add jssign
 ```
 
 ## Usage
@@ -80,8 +80,18 @@ console.log(data); // { id: 'confidential_data' }
 
 - `expiresIn` can be a numeric value representing time in ms (default value is `0` which represents no expiration).
 
-`sjclOptions` are the options taken by `sjcl.encrypt` method having type `SjclCipherEncryptParams`
+`sjclOptions` are the options taken by `sjcl.encrypt` method having type [`SjclOptions`](#sjcloptions)
 
-## Author
+## Types
 
-[Sahil Aggarwal](https://www.github.com/SahilAggarwal2004)
+### SjclOptions
+
+```typescript
+import type { SjclCipherEncryptParams } from "sjcl";
+
+type SjclOptions = SjclCipherEncryptParams;
+```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
