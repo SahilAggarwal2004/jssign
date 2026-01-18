@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.9](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.8...v0.3.9) (2026-01-18)
+
+### Chores
+
+* **deps:** Update release-it.  ([4455b6e](https://github.com/SahilAggarwal2004/jssign/commit/4455b6e432785f7fcdb0205ebd2419aee6270242))
+
+### Code Refactoring
+
+* Simplify `genSalt` by picking characters directly from string.  ([7c7b6e9](https://github.com/SahilAggarwal2004/jssign/commit/7c7b6e9881ac48916c8988afe7511a5755735143))
+
 ## [0.3.8](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.7...v0.3.8) (2026-01-04)
 
 ### Build System
