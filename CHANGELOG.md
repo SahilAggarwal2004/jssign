@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.10](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.9...v0.3.10) (2026-02-13)
+
+### Chores
+
+* **deps:** Update @release-it/conventional-changelog and release-it.  ([8d30fea](https://github.com/SahilAggarwal2004/jssign/commit/8d30fea6b358ddb461d99471de1793d4df60b050))
+
 ## [0.3.9](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.8...v0.3.9) (2026-01-18)
 
 ### Chores
