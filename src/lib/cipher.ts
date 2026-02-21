@@ -1,6 +1,6 @@
-import { pairRegex } from "../constants.js";
-import type { CipherMode } from "../types.js";
-import { byteHex, stringFromCode, textToChars } from "./utils.js";
+import { pairRegex } from "../constants";
+import type { CipherMode } from "../types";
+import { byteHex, stringFromCode, textToChars } from "./utils";
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();

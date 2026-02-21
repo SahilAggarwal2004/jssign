@@ -1,9 +1,9 @@
 import sjcl from "sjcl";
 
-import { decode, encode } from "./lib/cipher.js";
-import { validateData } from "./lib/token.js";
-import { genSalt } from "./lib/utils.js";
-import type { EncryptOptions, SignOptions, SjclOptions } from "./types.js";
+import { decode, encode } from "./lib/cipher";
+import { validateData } from "./lib/token";
+import { genSalt } from "./lib/utils";
+import type { EncryptOptions, SignOptions, SjclOptions } from "./types";
 
 export function sign(data: unknown, secret: string, { expiresIn = 0, sl = 32 }: SignOptions = {}): string {
   const salt = genSalt(sl);

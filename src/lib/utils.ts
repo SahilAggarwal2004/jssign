@@ -1,4 +1,4 @@
-import { characters } from "../constants.js";
+import { characters } from "../constants";
 
 export const byteHex = (n: number): string => ("0" + Number(n).toString(16)).slice(-2);
 
