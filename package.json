@@ -16,11 +16,13 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     },
     "./types": {
       "import": "./dist/types.mjs",
-      "require": "./dist/types.cjs"
+      "require": "./dist/types.cjs",
+      "types": "./dist/types.d.ts"
     }
   },
   "files": [
@@ -36,7 +38,6 @@
     "release": "release-it --ci"
   },
   "sideEffects": false,
-  "types": "./dist/index.d.ts",
   "dependencies": {
     "sjcl": "^1.0.8"
   },
