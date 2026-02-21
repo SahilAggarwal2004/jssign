@@ -38,6 +38,7 @@
     "release": "release-it --ci"
   },
   "sideEffects": false,
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "sjcl": "^1.0.8"
   },
