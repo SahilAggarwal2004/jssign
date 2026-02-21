@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.13](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.12...v0.3.13) (2026-02-21)
+
+### Chores
+
+* **package:** add root types field for npm compatibility.  ([f87f660](https://github.com/SahilAggarwal2004/jssign/commit/f87f660f9a9969ddc43895117f3d4186bd9781ff))
+
 ## [0.3.12](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.11...v0.3.12) (2026-02-21)
 
 ### Bug Fixes
