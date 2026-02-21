@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.11](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.10...v0.3.11) (2026-02-21)
+
+### Build System
+
+* Migrate from tsup to tsdown for library bundling.  ([b7ad594](https://github.com/SahilAggarwal2004/jssign/commit/b7ad594fbda5c803d047a3940a0facd912f030b8))
+
 ## [0.3.10](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.9...v0.3.10) (2026-02-13)
 
 ### Chores
