@@ -4,13 +4,13 @@
 
 ### Chores
 
-* **package:** add root types field for npm compatibility.  ([f87f660](https://github.com/SahilAggarwal2004/jssign/commit/f87f660f9a9969ddc43895117f3d4186bd9781ff))
+* **package:** Add root types field for npm compatibility.  ([f87f660](https://github.com/SahilAggarwal2004/jssign/commit/f87f660f9a9969ddc43895117f3d4186bd9781ff))
 
 ## [0.3.12](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.11...v0.3.12) (2026-02-21)
 
 ### Bug Fixes
 
-* **types:** expose declaration files via exports map.  ([814026a](https://github.com/SahilAggarwal2004/jssign/commit/814026acea2a64ca9137859a20f22ed9f186f3ba))
+* **types:** Expose declaration files via exports map.  ([814026a](https://github.com/SahilAggarwal2004/jssign/commit/814026acea2a64ca9137859a20f22ed9f186f3ba))
 
 ## [0.3.11](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.10...v0.3.11) (2026-02-21)
 

@@ -1,5 +1,6 @@
 onlyBuiltDependencies:
   - esbuild
-
 overrides:
-  minimatch@<10.2.1: '>=10.2.1'
+  basic-ftp@<5.2.0: '>=5.2.0'
+  undici@<6.24.0: '>=6.24.0'
+  undici@>=6.0.0 <6.24.0: '>=6.24.0'
