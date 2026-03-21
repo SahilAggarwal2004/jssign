@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.14](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.13...v0.3.14) (2026-03-21)
+
+### Chores
+
+* **deps:** Update sjcl, @release-it/conventional-changelog and tsdown.  ([356486e](https://github.com/SahilAggarwal2004/jssign/commit/356486e8c18e206c4eb813390bea1e6d0b4ff8aa))
+
 ## [0.3.13](https://github.com/SahilAggarwal2004/jssign/compare/v0.3.12...v0.3.13) (2026-02-21)
 
 ### Chores
