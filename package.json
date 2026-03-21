@@ -66,5 +66,8 @@
     "sjcl",
     "token",
     "typescript"
-  ]
+  ],
+  "engines": {
+    "node": ">=16"
+  }
 }
