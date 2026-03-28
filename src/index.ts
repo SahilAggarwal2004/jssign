@@ -1,5 +1,4 @@
 import sjcl from "sjcl";
-
 import { decode, encode } from "./lib/cipher";
 import { validateData } from "./lib/token";
 import { genSalt } from "./lib/utils";
@@ -14,7 +13,7 @@ export function sign(data: unknown, secret: string, { expiresIn = 0, sl = 32 }: 
 
 export function verify(token: string, secret: string): unknown {
   return validateData(token, secret, (token: string, secret: string) => {
-    const [dataStr, signature] = token.split(".");
+    const [dataStr = "", signature = ""] = token.split(".");
     const salt = decode(signature, secret, 0);
     return decode(dataStr, salt, 1);
   });
@@ -30,7 +29,7 @@ export function decrypt(token: string, secret: string): unknown {
   return validateData(token, secret, (token: string, secret: string) => {
     const encryptedArr = token.split(".");
     const encryptedObj = encryptedArr.reduce((obj: Record<string, string | number>, str) => {
-      const [key, value] = str.split(":");
+      const [key = "", value = ""] = str.split(":");
       obj[key] = isNaN(+value) ? value : +value;
       return obj;
     }, {});

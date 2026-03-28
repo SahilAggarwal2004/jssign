@@ -1,6 +1,6 @@
-import { pairRegex } from "../constants";
-import type { CipherMode } from "../types";
-import { byteHex, stringFromCode, textToChars } from "./utils";
+import { pairRegex } from "@/constants";
+import { byteHex, stringFromCode, textToChars } from "@/lib/utils";
+import type { CipherMode } from "@/types";
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -17,7 +17,7 @@ export function encode(data: string, secret: string, mode: CipherMode): string {
   const secretLength = secretBytes.length;
   const tokenBytes = new Uint8Array(dataLength);
 
-  for (let i = 0; i < dataLength; i++) tokenBytes[i] = dataBytes[i] ^ secretBytes[i % secretLength];
+  for (let i = 0; i < dataLength; i++) tokenBytes[i] = dataBytes[i]! ^ secretBytes[i % secretLength]!;
 
   return Array.from(tokenBytes)
     .map((byte) => byte.toString(16).padStart(2, "0"))
@@ -43,7 +43,7 @@ export function decode(token: string, secret: string, mode: CipherMode): string 
   const secretLength = secretBytes.length;
   const decodedBytes = new Uint8Array(tokenLength);
 
-  for (let i = 0; i < tokenLength; i++) decodedBytes[i] = tokenBytes[i] ^ secretBytes[i % secretLength];
+  for (let i = 0; i < tokenLength; i++) decodedBytes[i] = tokenBytes[i]! ^ secretBytes[i % secretLength]!;
 
   return decoder.decode(decodedBytes);
 }
